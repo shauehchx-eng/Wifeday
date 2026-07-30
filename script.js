@@ -780,3 +780,39 @@ document.addEventListener("DOMContentLoaded", () => {
     addEventListener("resize", () => { sizeStars(); });
   }
 })();
+// ===============================================
+// 📜 MESSAGE MODAL FUNCTIONS & BOTTLE HANDLER
+// ===============================================
+function openMessageModal(title, textHtml) {
+  const modal = document.getElementById("messageModal");
+  const titleEl = document.getElementById("messageModalTitle");
+  const bodyEl = document.getElementById("messageModalBody");
+
+  if (modal && titleEl && bodyEl) {
+    titleEl.textContent = title;
+    bodyEl.innerHTML = textHtml;
+    modal.classList.add("active");
+  }
+}
+
+function closeMessageModal() {
+  const modal = document.getElementById("messageModal");
+  if (modal) modal.classList.remove("active");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const bottleBtn = document.getElementById("bottle");
+  const bottleOut = document.getElementById("bottle-out");
+
+  if (bottleBtn) {
+    bottleBtn.addEventListener("click", () => {
+      if (bottleOut) bottleOut.textContent = "Cork popped! 🍾";
+      
+      openMessageModal(
+        "Message in a Bottle 🌊",
+        "My most bestest prettier girl is the one who's reading this, dummyy. ❤️"
+      );
+    });
+  }
+});
+
