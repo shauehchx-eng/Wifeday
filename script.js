@@ -3,10 +3,10 @@
 // Change these to your own secret words or dates!
 // ===============================================
 const DAY_PASSWORDS = {
-  may30: "thespark",   // Password for May 30th
-  may31: "ourvow",     // Password for May 31st
-  aug1:  "mywife",     // Password for August 1st
-  aug2:  "forever"     // Password for August 2nd
+  may30: "thedaywemetdummy",   // Password for May 30th
+  may31: "thedaywegotmarrieddummy",     // Password for May 31st
+  aug1:  "whosthebestwife?itsdorota",     // Password for August 1st
+  aug2:  "thedaywestsrteddatingdummy"     // Password for August 2nd
 };
 
 // Function to check password and unlock the chapter
@@ -25,7 +25,7 @@ function unlockChapter(dayKey, targetSectionId) {
       alert("✨ Correct! Chapter Unlocked, My Love ❤️");
     }
   } else {
-    alert("❌ Incorrect password, my love! Think back to our special memories and try again ❤️");
+    alert("❌ Incorrect password, my love! if you want password ask me!! you need to do few tasks to obtain each!! ❤️");
   }
 }
 
@@ -43,7 +43,7 @@ function unlockChapter(dayKey, targetSectionId) {
   /* ====== CONFIG — edit these ====== */
   const CONFIG = {
     audioSrc: "",                        // paste a direct .mp3 URL here
-    lovingSince: "2026-05-30T00:00:00",  // start of the live counter
+    lovingSince: "2026-05-30T03:23:57",  // start of the live counter
   };
 
   /* ---------------------------------------------------------------
