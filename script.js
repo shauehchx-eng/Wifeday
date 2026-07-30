@@ -3,10 +3,13 @@
 // Change these to your own secret words or dates!
 // ===============================================
 const DAY_PASSWORDS = {
-  may30: "thedaywemetdummy",   // Password for May 30th
-  may31: "thedaywegotmarrieddummy",     // Password for May 31st
-  aug1:  "whosthebestwife?itsdorota",     // Password for August 1st
-  aug2:  "thedaywestsrteddatingdummy"     // Password for August 2nd
+  may30:  "thespark",   // Chapter 1: May 30th
+  may31:  "ourvow",     // Chapter 2: May 31st
+  aug1:   "mywife",     // Chapter 3: August 1st
+  aug2:   "forever",    // Chapter 4: August 2nd
+  vault:  "memories",   // Chapter 5: The Memory Vault
+  prose:  "always",     // Chapter 6: The Eternal Prose
+  finale: "eternity"    // Chapter 7: Our Future Constellation
 };
 
 // Function to check password and unlock the chapter
@@ -17,7 +20,10 @@ function unlockChapter(dayKey, targetSectionId) {
   if (userPassword === null) return;
 
   // Check if password matches (case-insensitive)
-  if (userPassword.trim().toLowerCase() === DAY_PASSWORDS[dayKey].toLowerCase()) {
+  if (
+    DAY_PASSWORDS[dayKey] &&
+    userPassword.trim().toLowerCase() === DAY_PASSWORDS[dayKey].toLowerCase()
+  ) {
     const section = document.getElementById(targetSectionId);
     if (section) {
       section.removeAttribute("hidden");
@@ -25,7 +31,7 @@ function unlockChapter(dayKey, targetSectionId) {
       alert("✨ Correct! Chapter Unlocked, My Love ❤️");
     }
   } else {
-    alert("❌ Incorrect password, my love! if you want password ask me!! you need to do few tasks to obtain each!! ❤️");
+    alert("❌ Wrong password, my love!! if you need passwords ask me ill tell you but you need to do few tasks muwhahahaahha❤️");
   }
 }
 
