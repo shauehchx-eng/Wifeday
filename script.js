@@ -1,39 +1,79 @@
 // ===============================================
 // 🔑 SECRET PASSWORDS FOR EACH DAY
-// Change these to your own secret words or dates!
 // ===============================================
 const DAY_PASSWORDS = {
-  may30:  "thespark",   // Chapter 1: May 30th
-  may31:  "ourvow",     // Chapter 2: May 31st
-  aug1:   "mywife",     // Chapter 3: August 1st
-  aug2:   "forever",    // Chapter 4: August 2nd
-  vault:  "memories",   // Chapter 5: The Memory Vault
-  prose:  "always",     // Chapter 6: The Eternal Prose
-  finale: "eternity"    // Chapter 7: Our Future Constellation
+  may30:  "thedaywemetdummy",              // Chapter 1: May 30th
+  may31:  "whenwemarried",                 // Chapter 2: May 31st
+  aug1:   "whosthebestwife??dorotadummyy", // Chapter 3: August 1st
+  aug2:   "2monthanniversarybaby",         // Chapter 4: August 2nd
+  vault:  "ourmemoriesdummy",              // Chapter 5: The Memory Vault
+  prose:  "myloveforyou",                  // Chapter 6: The Eternal Prose
+  finale: "foreternity"                    // Chapter 7: Our Future Constellation
 };
 
-// Function to check password and unlock the chapter
+let currentDayKey = null;
+let currentTargetId = null;
+
+// Opens the custom modal lock
 function unlockChapter(dayKey, targetSectionId) {
-  const userPassword = prompt(`🔑 Enter the secret password to unlock this chapter:`);
+  currentDayKey = dayKey;
+  currentTargetId = targetSectionId;
 
-  // If user cancels the prompt
-  if (userPassword === null) return;
+  const modal = document.getElementById("passwordModal");
+  const input = document.getElementById("modalPasswordInput");
+  const errorMsg = document.getElementById("modalError");
 
-  // Check if password matches (case-insensitive)
+  if (modal && input) {
+    input.value = "";
+    errorMsg.style.display = "none";
+    modal.classList.add("active");
+    input.focus();
+  }
+}
+
+// Closes the modal lock
+function closeLockModal() {
+  const modal = document.getElementById("passwordModal");
+  if (modal) {
+    modal.classList.remove("active");
+  }
+}
+
+// Checks password and unlocks
+function submitPassword() {
+  const input = document.getElementById("modalPasswordInput");
+  const errorMsg = document.getElementById("modalError");
+  const userPassword = input ? input.value.trim() : "";
+
   if (
-    DAY_PASSWORDS[dayKey] &&
-    userPassword.trim().toLowerCase() === DAY_PASSWORDS[dayKey].toLowerCase()
+    DAY_PASSWORDS[currentDayKey] &&
+    userPassword.toLowerCase() === DAY_PASSWORDS[currentDayKey].toLowerCase()
   ) {
-    const section = document.getElementById(targetSectionId);
+    closeLockModal();
+    const section = document.getElementById(currentTargetId);
     if (section) {
       section.removeAttribute("hidden");
       section.scrollIntoView({ behavior: "smooth" });
-      alert("✨ Correct! Chapter Unlocked, My Love ❤️");
     }
   } else {
-    alert("❌ Wrong password, my love!! if you need passwords ask me ill tell you but you need to do few tasks muwhahahaahha❤️");
+    if (errorMsg) {
+      errorMsg.style.display = "block";
+    }
   }
 }
+
+// Support pressing "Enter" key in password input
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("modalPasswordInput");
+  if (input) {
+    input.addEventListener("keyup", (event) => {
+      if (event.key === "Enter") {
+        submitPassword();
+      }
+    });
+  }
+});
+
 
 /* ==========================================================================
    Old Love & Heavenly Romance — script.js
