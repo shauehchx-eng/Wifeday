@@ -355,36 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <p>I vow to love you till eternity and take care of you as a baby.</p>
     <p>I vow to love you beyond the forever, youre loved throughly and whole..</p>`;
 
-  /* ---------------------------------------------------------------
-    10. AUDIO — gramophone
-  --------------------------------------------------------------- */
-  function initAudio() {
-    const audio = $("#audio");
-    const vinyl = $("#vinyl");
-    if (CONFIG.audioSrc) audio.src = CONFIG.audioSrc;
-    let notesTimer = null;
-    vinyl.addEventListener("click", async () => {
-      if (!audio.src) {
-        openModal("Our song", "<p>Add a direct MP3 link at the top of <b>script.js</b> (<code>CONFIG.audioSrc</code>) and this gramophone will play it on a loop.</p>");
-        return;
-      }
-      try {
-        if (audio.paused) { await audio.play(); gramophone.classList.add("playing"); notesTimer = setInterval(floatNote, 900); }
-        else { audio.pause(); gramophone.classList.remove("playing"); clearInterval(notesTimer); }
-      } catch { /* autoplay blocked */ }
-    });
-    function floatNote() {
-      const n = document.createElement("span");
-      n.className = "music-note";
-      n.textContent = ["♪", "♫", "♩"][Math.floor(Math.random() * 3)];
-      const r = gramophone.getBoundingClientRect();
-      n.style.left = (r.left + rand(0, r.width)) + "px";
-      n.style.top = r.top + "px";
-      n.style.setProperty("--dx", rand(-40, 40) + "px");
-      document.body.appendChild(n);
-      setTimeout(() => n.remove(), 2600);
-    }
-  }
+  
 
   /* ---------------------------------------------------------------
     11. SECTION 3 & 4 interactions
@@ -414,7 +385,92 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+  /* ---------------------------------------------------------------
+      10. AUDIO — gramophone
+    --------------------------------------------------------------- */
+  function initAudio() {
+    const audio = $("#audio");
+    const vinyl = $("#vinyl");
+    const gramophone = $("#gramophone");
+    let notesTimer = null;
 
+    if (!audio || !vinyl) return;
+    if (typeof CONFIG !== "undefined" && CONFIG.audioSrc) {
+      audio.src = CONFIG.audioSrc;
+    }
+
+    // --- HELPER: Start Music & Visuals ---
+    async function playSong() {
+      if (!audio.src && !audio.getAttribute("src")) {
+        if (typeof openModal === "function") {
+          openModal("Our song", "<p>Add a direct MP3 link at the top of <b>script.js</b> (<code>CONFIG.audioSrc</code>) and this gramophone will play it on a loop.</p>");
+        }
+        return;
+      }
+
+      try {
+        await audio.play();
+        if (gramophone) {
+          gramophone.removeAttribute("hidden");
+          gramophone.classList.add("playing");
+        }
+        if (!notesTimer) {
+          notesTimer = setInterval(floatNote, 900);
+        }
+      } catch (err) {
+        /* Autoplay blocked by browser until user interaction */
+      }
+    }
+
+    // --- HELPER: Pause Music & Visuals ---
+    function pauseSong() {
+      audio.pause();
+      if (gramophone) gramophone.classList.remove("playing");
+      if (notesTimer) {
+        clearInterval(notesTimer);
+        notesTimer = null;
+      }
+    }
+
+    // 1. Manual Vinyl Click (Toggle Play / Pause)
+    vinyl.addEventListener("click", (e) => {
+      e.stopPropagation(); // Stops touch event collision
+      if (audio.paused) {
+        playSong();
+      } else {
+        pauseSong();
+      }
+    });
+
+    // 2. First Tap Anywhere On Page -> Start Song Automatically
+    function onFirstInteraction() {
+      if (audio.paused) {
+        playSong();
+      }
+      document.removeEventListener("click", onFirstInteraction);
+      document.removeEventListener("touchstart", onFirstInteraction);
+    }
+
+    document.addEventListener("click", onFirstInteraction);
+    document.addEventListener("touchstart", onFirstInteraction);
+
+    // 3. Floating Music Notes Effect
+    function floatNote() {
+      if (!gramophone) return;
+      const n = document.createElement("span");
+      n.className = "music-note";
+      n.textContent = ["♪", "♫", "♩"][Math.floor(Math.random() * 3)];
+      const r = gramophone.getBoundingClientRect();
+      const getRandom = typeof rand === "function" ? rand : (min, max) => Math.random() * (max - min) + min;
+      
+      n.style.left = (r.left + getRandom(0, r.width)) + "px";
+      n.style.top = r.top + "px";
+      n.style.setProperty("--dx", getRandom(-40, 40) + "px");
+      document.body.appendChild(n);
+      setTimeout(() => n.remove(), 2600);
+    }
+  }
+  
   /* ---------------------------------------------------------------
     12. THE 20 ENCHANTMENTS
   --------------------------------------------------------------- */
