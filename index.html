@@ -43,6 +43,7 @@
 <!-- ============ CHAPTER 0: THRESHOLD ============ -->
 <section id="threshold">
   <div class="candle-glow"></div>
+  
   <div class="envelope" id="envelope">
     <div class="env-body">
       <div class="env-flap"></div>
@@ -57,13 +58,20 @@
       </button>
     </div>
   </div>
+
+  <!-- Unlock Button for May 30th (Placed cleanly outside envelope) -->
+  <button onclick="unlockChapter('may30', 'may30')" class="unlock-btn">
+    🔒 Unlock Chapter I: May 30th ➔
+  </button>
+
   <p class="threshold-hint" id="threshold-hint">press the seal</p>
 </section>
 
-<main id="story" hidden>
+<main id="story">
+
 
 <!-- ============ CHAPTER 1: MAY 30 ============ -->
-<section class="chapter parchment tall-2500" id="may30">
+<section class="chapter parchment tall-2500" id="may30" hidden>
   <div class="filigree left"></div><div class="filigree right"></div>
   <div class="wrap">
     <div class="compass" data-reveal>
@@ -101,12 +109,15 @@
         <button class="teacup magnetic" id="teacup" aria-label="Swirl the tea leaves"><span class="tea"></span></button>
         <p class="hint" id="tea-out">swirl the leaves</p>
       </article>
-    </div>
+    </div>     <!-- PASTE BUTTON HERE (Line 60) -->
+    <button onclick="unlockChapter('may31', 'may31')" class="unlock-btn">
+      🔒 Unlock Chapter II: May 31st ➔
+    </button> 
   </div>
 </section>
 
 <!-- ============ CHAPTER 2: MAY 31 ============ -->
-<section class="chapter velvet tall-3000" id="may31">
+<section class="chapter velvet tall-3000" id="may31" hidden>
   <div class="candles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
   <div class="confetti" id="confetti" aria-hidden="true"></div>
   <div class="wrap">
@@ -154,12 +165,15 @@ You're mine for today, tomorrow and for the eternity. I'm yours for today, tomor
         <div class="musicbox" id="musicbox"><span class="gear g1"></span><span class="gear g2"></span><span class="figurine">❦</span></div>
         <button class="mini magnetic" id="mb-btn">Wind it up</button>
       </article>
-    </div>
+    </div> <!-- Place at the bottom of Chapter 2 (May 31st) -->
+<button onclick="unlockChapter('aug1', 'aug1')" class="unlock-btn">
+  🔒 Unlock Chapter III: August 1st ➔
+</button>
   </div>
 </section>
 
 <!-- ============ CHAPTER 3: AUG 1 ============ -->
-<section class="chapter velvet-deep tall-3000" id="aug1">
+<section class="chapter velvet-deep tall-3000" id="aug1" hidden>
   <div class="wrap">
     <p class="eyebrow gold" data-reveal>Chapter Three</p>
     <h2 class="grand" data-reveal>August 1st — Happy Girlfriend Day, My Life</h2>
@@ -199,13 +213,22 @@ You're mine for today, tomorrow and for the eternity. I'm yours for today, tomor
         <div class="mirror"><p class="mirror-text">Your heart is the place my soul has decided to stay dummy and you cant change it.</p><canvas class="fog" id="fog"></canvas></div>
         <p class="hint">wipe the fog away</p>
       </article>
-    </div>
-  </div>
+    </div> <!-- Closes magic-grid -->
+
+    <!-- Unlock Button for Chapter IV (August 2nd) -->
+    <button onclick="unlockChapter('aug2', 'aug2')" class="unlock-btn">
+      🔒 Unlock Chapter IV: August 2nd ➔
+    </button>
+
+  </div> <!-- Closes wrap -->
 </section>
+  
 
 <!-- ============ CHAPTER 4: AUG 2 ============ -->
-<section class="chapter parchment tall-2500" id="aug2">
-  <div class="filigree left"></div><div class="filigree right"></div>
+<section class="chapter parchment tall-2500" id="aug2" hidden>
+  <div class="filigree left"></div>
+  <div class="filigree right"></div>
+
   <div class="wrap">
     <p class="eyebrow" data-reveal>Chapter Four</p>
     <h2 class="grand" data-reveal>August 2nd — When Love Claimed Us</h2>
@@ -283,16 +306,24 @@ You're mine for today, tomorrow and for the eternity. I'm yours for today, tomor
         <div class="globe" id="globe"><i class="pin p1" data-place="Where we met"></i><i class="pin p2" data-place="Where we married"></i></div>
         <p class="hint" id="globe-out">tap a glowing pin</p>
       </article>
-    </div>
-  </div>
+    </div> <!-- Closes magic-grid -->
+
+    <!-- Unlock Button for Chapter V -->
+    <button onclick="unlockChapter('vault', 'vault')" class="unlock-btn">
+      🔒 Unlock Chapter V: Memory Vault ➔
+    </button>
+
+  </div> <!-- Closes wrap -->
 </section>
 
+
 <!-- ============ CHAPTER 5: MEMORY VAULT ============ -->
-<section class="chapter velvet" id="vault">
+<section class="chapter velvet" id="vault" hidden>
   <div class="wrap">
     <p class="eyebrow gold" data-reveal>Chapter Five</p>
     <h2 class="grand" data-reveal>The Memory Vault</h2>
     <div class="lights" aria-hidden="true"></div>
+
     <div class="polaroids" id="polaroids">
       <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>the first hello</figcaption></figure>
       <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>May 30th</figcaption></figure>
@@ -303,16 +334,24 @@ You're mine for today, tomorrow and for the eternity. I'm yours for today, tomor
       <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>quiet evening</figcaption></figure>
       <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>forever</figcaption></figure>
     </div>
+
     <p class="hint center">replace each frame's background-image in style.css (.ph) with your own photo</p>
-  </div>
+
+    <!-- Unlock Button for Chapter VI (Eternal Prose) -->
+    <button onclick="unlockChapter('prose', 'prose')" class="unlock-btn">
+      🔒 Unlock Chapter VI: Eternal Prose ➔
+    </button>
+
+  </div> <!-- Closes wrap -->
 </section>
 
 <!-- ============ CHAPTER 6: ETERNAL PROSE ============ -->
-<section class="chapter parchment" id="prose">
+<section class="chapter parchment" id="prose" hidden>
   <div class="wrap narrow">
     <p class="eyebrow" data-reveal>Chapter Six</p>
     <h2 class="grand" data-reveal>The Eternal Prose</h2>
     <p class="subtitle" data-reveal>A letter with no end. Paste your twenty thousand words below — the layout will hold.</p>
+
     <article class="manuscript" id="manuscript">
       <p class="line"><span class="drop">M</span>y love, if I were given a page for every thought I have of you, the world would run out of paper long before I ran out of thoughts.</p>
       <p class="line">I have tried, many times, to find the beginning of this feeling. I cannot. It seems to have been there before I was — waiting, patient as stone, for the day your name would arrive and give it a shape.</p>
@@ -321,15 +360,24 @@ You're mine for today, tomorrow and for the eternity. I'm yours for today, tomor
       <p class="line">I do not love you the way one loves a season. I love you the way one loves the ground — permanently, unremarkably, absolutely, in a way that only becomes visible if it were ever taken away.</p>
       <p class="line">Add every remaining word here. Each paragraph fades and glows into view on its own as she reads.</p>
     </article>
-  </div>
+
+    <!-- Unlock Button for Chapter VII -->
+    <button onclick="unlockChapter('finale', 'finale')" class="unlock-btn">
+      🔒 Unlock Chapter VII: Our Future Constellation ➔
+    </button>
+
+  </div> <!-- Closes wrap narrow -->
 </section>
 
+
 <!-- ============ CHAPTER 7: CONSTELLATION ============ -->
-<section class="chapter night" id="finale">
+<section class="chapter night" id="finale" hidden>
   <canvas id="stars" aria-hidden="true"></canvas>
+  
   <div class="wrap">
     <p class="eyebrow gold" data-reveal>Chapter Seven</p>
     <h2 class="grand script" data-reveal>Our Future Constellation</h2>
+
     <div class="constellation" id="constellation">
       <svg class="const-lines" id="const-lines" aria-hidden="true"></svg>
       <button class="node" style="--x:12%;--y:22%">Our House</button>
@@ -350,14 +398,14 @@ You're mine for today, tomorrow and for the eternity. I'm yours for today, tomor
     </svg>
 
     <svg class="signature" viewBox="0 0 600 140" aria-hidden="true">
-      <path id="sig-path" d="M20,100 C60,20 90,120 120,70 C150,20 170,110 200,80 C230,50 250,110 280,70 C310,30 330,110 370,75 C410,40 430,105 470,70 C500,44 530,80 580,50"
-        fill="none" stroke="#D4AF37" stroke-width="3" stroke-linecap="round"/>
+      <path id="sig-path" d="M20,100 C60,20 90,120 120,70 C150,20 170,110 200,80 C230,50 250,110 280,70 C310,30 330,110 370,75 C410,40 430,105 470,70 C500,44 530,80 580,50" fill="none" stroke="#D4AF37" stroke-width="3" stroke-linecap="round"/>
     </svg>
     <p class="sig-text">Forever &amp; Always Yours</p>
-  </div>
+  </div> <!-- Closes wrap -->
 </section>
 
-</main>
+</main> <!-- Closes main story container -->
+
 
 <!-- ============ GRAMOPHONE PLAYER ============ -->
 <div class="gramophone" id="gramophone" hidden>
