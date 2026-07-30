@@ -336,38 +336,58 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 /* ---------------------------------------------------------------
-    9. MODAL
+    9. MODAL — Red Romantic Aesthetic
   --------------------------------------------------------------- */
 const VOWS = `
-  <p>I vow to be the one to stay with your highs and low.</p>
+  <p>I vow to be the one to stay with your highs and lows.</p>
   <p>I vow to love you the same and more every single day.</p>
   <p>I vow to love you till eternity and take care of you as a baby.</p>
-  <p>I vow to love you beyond the forever, youre loved throughly and whole..</p>`;
+  <p>I vow to love you beyond the forever, you are loved thoroughly and whole.</p>`;
 
 function openModal(title, html) {
-  const modal = document.getElementById("modal") || (typeof $ === "function" ? $("#modal") : null);
-  const modalTitle = document.getElementById("modal-title") || (typeof $ === "function" ? $("#modal-title") : null);
-  const modalBody = document.getElementById("modal-body") || (typeof $ === "function" ? $("#modal-body") : null);
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalBody = document.getElementById("modal-body");
 
   if (modal) {
     if (modalTitle) modalTitle.textContent = title;
     if (modalBody) modalBody.innerHTML = html;
     modal.hidden = false;
     modal.removeAttribute("hidden");
-    modal.classList.add("active");
-  } else {
-    // Backup pop-up if #modal element is missing
-    alert(title + "\n\n" + html.replace(/<[^>]*>?/gm, ""));
   }
 }
 
 function closeModal() {
-  const modal = document.getElementById("modal") || (typeof $ === "function" ? $("#modal") : null);
+  const modal = document.getElementById("modal");
   if (modal) {
     modal.hidden = true;
-    modal.classList.remove("active");
+    modal.setAttribute("hidden", "true");
   }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Catch clicks on seal/vows button
+  document.body.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-modal]");
+    if (btn && btn.getAttribute("data-modal") === "vows") {
+      openModal("Our Sacred Vows", VOWS);
+    }
+  });
+
+  const modal = document.getElementById("modal");
+  const modalX = document.getElementById("modal-x");
+
+  if (modalX) modalX.addEventListener("click", closeModal);
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+});
+
 
 // Attach event listeners for modal buttons & close buttons
 document.addEventListener("DOMContentLoaded", () => {
