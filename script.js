@@ -335,25 +335,67 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ---------------------------------------------------------------
-     9. MODAL
+/* ---------------------------------------------------------------
+    9. MODAL
   --------------------------------------------------------------- */
-  const modal = $("#modal");
-  function openModal(title, html) {
-    $("#modal-title").textContent = title;
-    $("#modal-body").innerHTML = html;
-    modal.hidden = false;
-  }
-  const closeModal = () => { modal.hidden = true; };
-  $("#modal-x").addEventListener("click", closeModal);
-  modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
-  addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+const VOWS = `
+  <p>I vow to be the one to stay with your highs and low.</p>
+  <p>I vow to love you the same and more every single day.</p>
+  <p>I vow to love you till eternity and take care of you as a baby.</p>
+  <p>I vow to love you beyond the forever, youre loved throughly and whole..</p>`;
 
-  const VOWS = `
-    <p>I vow to be the one to stay with your highs and low.</p>
-    <p>I vow to love you the same and more every single day.</p>
-    <p>I vow to love you till eternity and take care of you as a baby.</p>
-    <p>I vow to love you beyond the forever, youre loved throughly and whole.</p>`;
+function openModal(title, html) {
+  const modal = document.getElementById("modal") || (typeof $ === "function" ? $("#modal") : null);
+  const modalTitle = document.getElementById("modal-title") || (typeof $ === "function" ? $("#modal-title") : null);
+  const modalBody = document.getElementById("modal-body") || (typeof $ === "function" ? $("#modal-body") : null);
+
+  if (modal) {
+    if (modalTitle) modalTitle.textContent = title;
+    if (modalBody) modalBody.innerHTML = html;
+    modal.hidden = false;
+    modal.removeAttribute("hidden");
+    modal.classList.add("active");
+  } else {
+    // Backup pop-up if #modal element is missing
+    alert(title + "\n\n" + html.replace(/<[^>]*>?/gm, ""));
+  }
+}
+
+function closeModal() {
+  const modal = document.getElementById("modal") || (typeof $ === "function" ? $("#modal") : null);
+  if (modal) {
+    modal.hidden = true;
+    modal.classList.remove("active");
+  }
+}
+
+// Attach event listeners for modal buttons & close buttons
+document.addEventListener("DOMContentLoaded", () => {
+  // Listen for clicks on any element with data-modal attribute
+  document.body.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-modal]");
+    if (btn) {
+      const modalType = btn.getAttribute("data-modal");
+      if (modalType === "vows") {
+        openModal("Our Sacred Vows 📜", VOWS);
+      }
+    }
+  });
+
+  const modal = document.getElementById("modal");
+  const modalX = document.getElementById("modal-x");
+
+  if (modalX) modalX.addEventListener("click", closeModal);
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+});
+
 
   
 
