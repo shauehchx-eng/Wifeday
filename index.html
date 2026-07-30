@@ -415,33 +415,28 @@ You're mine for today, tomorrow and for the eternity. I'm yours for today, tomor
   <audio id="audio" loop preload="none" src="Nothing_s_Gonna_Stop_Us_Now(256k).mp3"></audio>
 </div>
 
-<!-- ============ MODAL ============ -->
-<div class="modal" id="modal" hidden>
-  <div class="modal-card" role="dialog" aria-modal="true">
-    <button class="modal-x" id="modal-x" aria-label="Close">×</button>
-    <h3 id="modal-title"></h3>
-    <div id="modal-body"></div>
-  </div>
-</div>
-
-<script src="./script.js"></script>
-  <!-- IN-PAGE PASSWORD LOCK MODAL -->
+  <!-- 🔒 ULTRA-AESTHETIC LOCK POP-UP MODAL -->
   <div id="passwordModal" class="lock-modal-overlay">
-    <div class="lock-modal-card">
-      <div style="font-size: 2.2rem;">🔒</div>
-      <h3>Unlock Chapter</h3>
-      <p style="font-size: 0.9rem; opacity: 0.85; margin: 0;">Enter our secret password to read on, my love:</p>
+    <div class="lock-modal-card" id="lockModalCard">
+      <div class="lock-icon-badge">✨ 🔒 ✨</div>
+      <h3>Secret Chapter</h3>
+      <p class="lock-subtext">Whisper the secret password to unlock this memory, my love...</p>
       
-      <input type="password" id="modalPasswordInput" class="lock-input" placeholder="Enter password..." />
-      <p id="modalError" style="color: #ff6b6b; font-size: 0.85rem; margin: 5px 0 10px; display: none;">❌ Incorrect password, try again! ❤️</p>
+      <div class="lock-input-wrapper">
+        <input type="password" id="modalPasswordInput" class="lock-input" placeholder="Enter password..." />
+      </div>
       
-      <div style="margin-top: 15px; display: flex; gap: 12px; justify-content: center; align-items: center;">
-        <button onclick="closeLockModal()" style="background: transparent; color: #bbb; border: none; cursor: pointer; font-size: 0.9rem;">Cancel</button>
-        <button onclick="submitPassword()" class="lock-submit-btn">Unlock ✨</button>
+      <p id="modalError" class="lock-error">❌ Incorrect password, my love! Think back to our memories ❤️</p>
+      
+      <div class="lock-actions">
+        <button onclick="closeLockModal()" class="lock-cancel-btn">Close</button>
+        <button onclick="submitPassword()" class="lock-submit-btn">Unlock Chapter ✨</button>
       </div>
     </div>
   </div>
 
+  <!-- JavaScript File Connection -->
   <script src="./script.js"></script>
+
 </body>
 </html>
