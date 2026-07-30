@@ -565,11 +565,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }));
 
     // 15 bottle
-    document.getElementById("bottle").addEventListener("click", () => {
-  openModal(
-    "Message in a bottle",
-    "<p>my most bestest prettier girl is the one whos reading this dummyy.</p>"
-  );
+document.addEventListener("DOMContentLoaded", () => {
+  const bottleBtn = document.getElementById("bottle");
+
+  if (bottleBtn) {
+    bottleBtn.addEventListener("click", () => {
+      // Updates hint text if element exists
+      const bottleOut = document.getElementById("bottle-out");
+      if (bottleOut) bottleOut.textContent = "Cork popped! 🍾";
+
+      // 1. Checks if openMessageModal exists (from our modal popup setup)
+      if (typeof openMessageModal === "function") {
+        openMessageModal(
+          "Message in a Bottle 🌊",
+          "my most bestest prettier girl is the one whos reading this dummyy. ❤️"
+        );
+      } 
+      // 2. Checks if openModal exists in your script
+      else if (typeof openModal === "function") {
+        openModal(
+          "Message in a Bottle 🌊",
+          "<p>my most bestest prettier girl is the one whos reading this dummyy. ❤️</p>"
+        );
+      } 
+      // 3. Backup Alert (Ensures it works even if modal HTML is missing)
+      else {
+        alert("Message in a Bottle 🌊\n\nmy most bestest prettier girl is the one whos reading this dummyy. ❤️");
+      }
+    });
+  }
 });
 
     // 16 pocket watch
