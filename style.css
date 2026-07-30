@@ -694,3 +694,45 @@ button{font:inherit;color:inherit;cursor:pointer}
 .velvet .grand:not(.script),.velvet-deep .grand:not(.script),.night .grand:not(.script){
   -webkit-background-clip:text;background-clip:text;color:transparent;
   -webkit-text-fill-color:transparent}
+/* ===============================================
+   🚀 HARDWARE ACCELERATION & SMOOTH SCROLL FIXES
+   =============================================== */
+
+/* Offload animations to GPU layer */
+.music-note,
+.gramophone,
+.vinyl,
+.lock-modal-card {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+/* Lighten background blur intensity for smooth 60fps scrolling */
+.lock-modal-overlay {
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* Smooth floating note keyframes */
+.music-note {
+  position: fixed;
+  pointer-events: none;
+  font-size: 1.2rem;
+  color: #d4af37;
+  opacity: 1;
+  animation: floatUpNote 2.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  z-index: 9999;
+}
+
+@keyframes floatUpNote {
+  0% {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-90px) translateX(var(--dx)) scale(1.2);
+  }
+}
+
