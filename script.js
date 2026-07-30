@@ -353,7 +353,7 @@ document.addEventListener("DOMContentLoaded", () => {
     <p>I vow to be the one to stay with your highs and low.</p>
     <p>I vow to love you the same and more every single day.</p>
     <p>I vow to love you till eternity and take care of you as a baby.</p>
-    <p>I vow to love you beyond the forever, youre loved throughly and whole..</p>`;
+    <p>I vow to love you beyond the forever, youre loved throughly and whole.</p>`;
 
   
 
