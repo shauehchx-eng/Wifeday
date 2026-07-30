@@ -397,6 +397,42 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+function closeModal() {
+  const modal = document.getElementById("modal") || (typeof $ === "function" ? $("#modal") : null);
+  if (modal) {
+    modal.hidden = true;
+    modal.classList.remove("active");
+  }
+}
+
+// Attach event listeners for modal buttons & close buttons
+document.addEventListener("DOMContentLoaded", () => {
+  // Listen for clicks on any element with data-modal attribute
+  document.body.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-modal]");
+    if (btn) {
+      const modalType = btn.getAttribute("data-modal");
+      if (modalType === "vows") {
+        openModal("Our Sacred Vows 📜", VOWS);
+      }
+    }
+  });
+
+  const modal = document.getElementById("modal");
+  const modalX = document.getElementById("modal-x");
+
+  if (modalX) modalX.addEventListener("click", closeModal);
+  if (modal) {
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+  }
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+});
+
+
   
 
   /* ---------------------------------------------------------------
