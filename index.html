@@ -94,7 +94,7 @@
     <div class="magic-grid">
       <article class="mcard" data-reveal>
         <h3>🕯️ Invisible Ink Candle</h3>
-        <div class="ink-parch" id="ink-parch"><span class="ink-text">Youre everything i could ever ask for, i love you so much beyong what my words carry — hidden so only you can find it baby.</span><span class="ink-flame" id="ink-flame"></span></div>
+        <div class="ink-parch" id="ink-parch"><span class="ink-text">Youre everything i could ever ask for, i love you so much beyond what my words carry baby— hidden so only you can find it baby.</span><span class="ink-flame" id="ink-flame"></span></div>
         <p class="hint">drag the flame across the page</p>
       </article>
 
@@ -436,6 +436,24 @@ You're mine for today, tomorrow and for the eternity. I'm yours for today, tomor
   </div>
 
   <!-- JavaScript File Connection -->
+  <script src="./script.js"></script>
+    <!-- 📜 MESSAGE POP-UP MODAL -->
+  <div id="messageModal" class="lock-modal-overlay">
+    <div class="lock-modal-card">
+      <div class="lock-icon-badge">🍾</div>
+      <h3 id="messageModalTitle">Message in a Bottle</h3>
+      
+      <p id="messageModalBody" class="lock-subtext" style="font-size: 1.1rem; line-height: 1.6; color: #f7f3eb; margin: 15px 0 25px;">
+        <!-- Message loads here -->
+      </p>
+
+      <div class="lock-actions">
+        <button onclick="closeMessageModal()" class="lock-submit-btn">Close ❤️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 👇 Keep script tag right below the modal -->
   <script src="./script.js"></script>
 
 </body>
