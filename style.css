@@ -1,3 +1,128 @@
+/* ===============================================
+   ✨ ROMANTIC GOOGLE FONTS & TYPOGRAPHY
+   =============================================== */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Handwriting script for main titles */
+h1, h2, .grand, .script {
+  font-family: 'Great Vibes', cursive !important;
+  letter-spacing: 1px;
+}
+
+/* Elegant serif for subtitles and headings */
+h3, .eyebrow, .subtitle, .tracker-label {
+  font-family: 'Cormorant Garamond', serif !important;
+  letter-spacing: 1.5px;
+}
+
+/* Unlock Buttons styling */
+.unlock-btn {
+  display: block;
+  margin: 30px auto;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #d4af37, #aa7c11);
+  color: #111;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(212,175,55,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.unlock-btn:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 20px rgba(212,175,55,0.5);
+}
+
+/* ===============================================
+   🔒 CUSTOM IN-PAGE LOCK MODAL
+   =============================================== */
+.lock-modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(12, 8, 18, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0; 
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.lock-modal-overlay.active {
+  opacity: 1; 
+  pointer-events: auto;
+}
+
+.lock-modal-card {
+  background: #1c1424;
+  border: 1px solid #d4af37;
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  max-width: 360px;
+  width: 88%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 25px rgba(212,175,55,0.25);
+  color: #f7f3eb;
+  transform: translateY(15px);
+  transition: transform 0.3s ease;
+}
+
+.lock-modal-overlay.active .lock-modal-card {
+  transform: translateY(0);
+}
+
+.lock-modal-card h3 {
+  font-family: 'Great Vibes', cursive !important;
+  font-size: 2.4rem;
+  color: #d4af37;
+  margin: 5px 0 10px;
+}
+
+.lock-input {
+  width: 100%;
+  padding: 12px;
+  margin: 15px 0 8px;
+  border-radius: 10px;
+  border: 1px solid #d4af37;
+  background: #2a1e38;
+  color: #fff;
+  text-align: center;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.lock-input:focus {
+  box-shadow: 0 0 10px rgba(212,175,55,0.5);
+}
+
+.lock-submit-btn {
+  background: linear-gradient(135deg, #d4af37, #aa7c11);
+  color: #111;
+  font-weight: 600;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.lock-submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(212,175,55,0.4);
+}
+
 /* ==========================================================================
    Old Love & Heavenly Romance — style.css
    ========================================================================== */
