@@ -350,10 +350,10 @@ document.addEventListener("DOMContentLoaded", () => {
   addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
   const VOWS = `
-    <p>I vow to be the calm in your storms and the applause in your triumphs.</p>
-    <p>I vow to love you loudly on the good days and quietly, stubbornly, on the hard ones.</p>
-    <p>I vow that no argument will ever outlive a night, no distance will ever outlive a thread, and no version of you will ever be one I stop choosing.</p>
-    <p>I vow forever — and then, if forever runs out, whatever comes after it.</p>`;
+    <p>I vow to be the one to stay with your highs and low.</p>
+    <p>I vow to love you the same and more every single day.</p>
+    <p>I vow to love you till eternity and take care of you as a baby.</p>
+    <p>I vow to love you beyond the forever, youre loved throughly and whole..</p>`;
 
   /* ---------------------------------------------------------------
     10. AUDIO — gramophone
@@ -781,7 +781,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 })();
 // ===============================================
-// 📜 MESSAGE MODAL FUNCTIONS & BOTTLE HANDLER
+// 📜 MESSAGE MODAL & BOTTLE FUNCTIONS
 // ===============================================
 function openMessageModal(title, textHtml) {
   const modal = document.getElementById("messageModal");
@@ -792,27 +792,27 @@ function openMessageModal(title, textHtml) {
     titleEl.textContent = title;
     bodyEl.innerHTML = textHtml;
     modal.classList.add("active");
+  } else {
+    // Backup pop-up if modal element isn't found
+    alert(title + "\n\n" + textHtml.replace(/<[^>]*>?/gm, ''));
   }
 }
 
 function closeMessageModal() {
   const modal = document.getElementById("messageModal");
-  if (modal) modal.classList.remove("active");
+  if (modal) {
+    modal.classList.remove("active");
+  }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const bottleBtn = document.getElementById("bottle");
+function popBottle() {
   const bottleOut = document.getElementById("bottle-out");
-
-  if (bottleBtn) {
-    bottleBtn.addEventListener("click", () => {
-      if (bottleOut) bottleOut.textContent = "Cork popped! 🍾";
-      
-      openMessageModal(
-        "Message in a Bottle 🌊",
-        "My most bestest prettier girl is the one who's reading this, dummyy. ❤️"
-      );
-    });
+  if (bottleOut) {
+    bottleOut.textContent = "Cork popped! 🍾";
   }
-});
-
+  
+  openMessageModal(
+    "Message in a Bottle 🌊",
+    "My most bestest prettier girl is the one who's reading this, dummyy. ❤️"
+  );
+}
