@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Old Love &amp; Heavenly Romance — Forever &amp; Always Yours</title>
+<meta name="description" content="A living vintage heirloom: our story of May 30th, May 31st, August 1st and August 2nd, written in candlelight and gold." />
+<meta property="og:title" content="Old Love &amp; Heavenly Romance" />
+<meta property="og:description" content="An infinite, handwritten love letter for my wife." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Pinyon+Script&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body class="locked">
+
+<!-- ============ ATMOSPHERE ============ -->
+<div class="grain" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<canvas id="petal-canvas" aria-hidden="true"></canvas>
+<canvas id="dust-canvas" aria-hidden="true"></canvas>
+
+<!-- ============ RED STRING OF FATE ============ -->
+<svg id="fate-string" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 100 1000">
+  <defs>
+    <linearGradient id="stringGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="18%" stop-color="#C42A38"/>
+      <stop offset="55%" stop-color="#7A1C2E"/>
+      <stop offset="85%" stop-color="#C42A38"/>
+      <stop offset="100%" stop-color="#D4AF37"/>
+    </linearGradient>
+    <filter id="stringGlow" x="-200%" y="-50%" width="500%" height="200%">
+      <feGaussianBlur stdDeviation="1.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <path id="fate-path" fill="none" stroke="url(#stringGrad)" stroke-width="0.55" stroke-linecap="round" filter="url(#stringGlow)" />
+</svg>
+
+<!-- ============ CHAPTER 0: THRESHOLD ============ -->
+<section id="threshold">
+  <div class="candle-glow"></div>
+  <div class="envelope" id="envelope">
+    <div class="env-body">
+      <div class="env-flap"></div>
+      <div class="env-front">
+        <p class="env-to">To my wife,</p>
+        <p class="env-sub">the whole of my heaven</p>
+      </div>
+      <button class="wax-seal" id="wax-seal" aria-label="Open the letter">
+        <span class="seal-heart">
+          <span class="seal-initials">A <em>&amp;</em> B</span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <p class="threshold-hint" id="threshold-hint">press the seal</p>
+</section>
+
+<main id="story" hidden>
+
+<!-- ============ CHAPTER 1: MAY 30 ============ -->
+<section class="chapter parchment tall-2500" id="may30">
+  <div class="filigree left"></div><div class="filigree right"></div>
+  <div class="wrap">
+    <div class="compass" data-reveal>
+      <div class="compass-face"><span class="compass-label">MAY 30</span><div class="compass-needle"></div></div>
+    </div>
+    <p class="eyebrow" data-reveal>Chapter One</p>
+    <h1 class="grand" data-reveal>May 30th — The Spark of Heaven</h1>
+    <p class="subtitle" data-reveal>The day heaven brought me you — celebrating 2 months of knowing my soulmate.</p>
+
+    <div class="diary" data-reveal>
+      <div class="diary-inner">
+        <p class="pen" data-pen>There is a moment the world holds its breath before it changes you forever — mine was on the thirtieth of May.</p>
+        <p class="pen" data-pen>I did not know, when the day began, that heaven had already signed the paperwork. That somewhere above the ordinary noise of an ordinary morning, a thread of red silk had been tied around my wrist and yours, and the pulling had quietly begun.</p>
+        <p class="pen" data-pen>Then you spoke. And every road I had ever walked rearranged itself behind me so that it had always, only, been leading here.</p>
+        <p class="pen" data-pen>I remember the softness in your words. I remember thinking: <em>oh — there you are. I have been looking for you my entire life without knowing your name.</em></p>
+        <p class="pen" data-pen>Two months later I still wake up astonished. Not because love is rare, but because <em>you</em> are.</p>
+      </div>
+    </div>
+
+    <div class="magic-grid">
+      <article class="mcard" data-reveal>
+        <h3>🕯️ Invisible Ink Candle</h3>
+        <div class="ink-parch" id="ink-parch"><span class="ink-text">You are the best thing that has ever happened to me — written in light so only you can find it.</span><span class="ink-flame" id="ink-flame"></span></div>
+        <p class="hint">drag the flame across the page</p>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🌊 Message in a Bottle</h3>
+        <div class="ocean"><button class="bottle magnetic" id="bottle" aria-label="Open the bottle"></button></div>
+        <p class="hint" id="bottle-out">tap the bottle to pop the cork</p>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🍵 Fortune Teacup Reader</h3>
+        <button class="teacup magnetic" id="teacup" aria-label="Swirl the tea leaves"><span class="tea"></span></button>
+        <p class="hint" id="tea-out">swirl the leaves</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 2: MAY 31 ============ -->
+<section class="chapter velvet tall-3000" id="may31">
+  <div class="candles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="confetti" id="confetti" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow gold" data-reveal>Chapter Two</p>
+    <h2 class="grand script" data-reveal>May 31st — The Sacred Vows</h2>
+    <p class="subtitle" data-reveal>The day you became my wife — celebrating 2 months of eternal marriage.</p>
+
+    <div class="goldframe" data-reveal>
+      <p>One day after heaven introduced us, heaven kept us. There was no hesitation in it — only the calm certainty of two souls recognising an old promise.</p>
+      <p>I took you not for a season, but for every season that will ever exist.</p>
+    </div>
+
+    <button class="seal-btn magnetic" data-modal="vows" data-reveal>
+      <span class="mini-seal"></span> Melt the seal — read our sacred vows
+    </button>
+
+    <div class="magic-grid">
+      <article class="mcard" data-reveal>
+        <h3>🔏 Eternal Love-Lock Bridge</h3>
+        <div class="bridge" id="bridge"></div>
+        <button class="mini magnetic" id="lock-btn">Add a padlock “A + B”</button>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🖼️ Golden Heart Locket</h3>
+        <div class="locket" id="locket"><div class="locket-lid"></div><p class="locket-quote">“In all the world, there is no heart for me like yours.”</p></div>
+        <p class="hint">click the locket</p>
+      </article>
+
+      <article class="mcard wide" data-reveal>
+        <h3>📜 Starlit Music Sheet</h3>
+        <div class="sheet" id="sheet"></div>
+        <p class="hint" id="sheet-out">click the notes</p>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🕰️ Victorian Pocket Watch</h3>
+        <button class="watch magnetic" id="watch" aria-label="Flip the watch open"><span class="watch-lid"></span><span class="watch-face"><i class="hand h"></i><i class="hand m"></i><i class="hand s"></i></span></button>
+        <p class="hint">flip it open</p>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🎵 Antique Music Box</h3>
+        <div class="musicbox" id="musicbox"><span class="gear g1"></span><span class="gear g2"></span><span class="figurine">❦</span></div>
+        <button class="mini magnetic" id="mb-btn">Wind it up</button>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 3: AUG 1 ============ -->
+<section class="chapter velvet-deep tall-3000" id="aug1">
+  <div class="wrap">
+    <p class="eyebrow gold" data-reveal>Chapter Three</p>
+    <h2 class="grand" data-reveal>August 1st — Happy Girlfriend Day, My Life</h2>
+    <p class="subtitle" data-reveal>My wife, my girlfriend, my everything.</p>
+
+    <div class="openwhen" data-reveal>
+      <button class="ow-card magnetic" data-note="Then close your eyes, my love. I am the warmth behind your eyelids, the hand you feel when no one is holding it. Distance has never once loosened this thread.">Open when you miss me</button>
+      <button class="ow-card magnetic" data-note="Consider it given — one thousand of them, slow, on your forehead, your cheek, the corner of your mouth where your smile begins.">Open when you need a kiss</button>
+      <button class="ow-card magnetic" data-note="Breathe. Put it all down. You are not carrying this alone and you never will be again. I am here, and I am not tired of you, and I never will be.">Open when you're stressed</button>
+      <button class="ow-card magnetic" data-note="You are the only person alive who can make me laugh in a language nobody else speaks. Now smile — I felt that.">Open when you want to smile</button>
+    </div>
+
+    <button class="btn-gold magnetic" id="kiss-btn" data-reveal>Send a Million Kisses</button>
+
+    <div class="magic-grid">
+      <article class="mcard" data-reveal>
+        <h3>💓 Heartbeat Pulse Ribbon</h3>
+        <svg class="pulse" viewBox="0 0 300 60" id="pulse"><path d="M0,30 L60,30 L72,10 L84,50 L96,30 L150,30 L162,14 L174,46 L186,30 L300,30" fill="none" stroke="#C42A38" stroke-width="3" stroke-linecap="round"/></svg>
+        <p class="hint">touch the ribbon</p>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🔥 Hold for Kisses</h3>
+        <button class="hold-heart" id="hold-heart" aria-label="Hold to fill the warmth meter">♥</button>
+        <div class="meter"><i id="meter-fill"></i></div>
+        <p class="hint">press and hold the golden heart</p>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🎟️ Love Coupon Dispenser</h3>
+        <div class="dispenser" id="dispenser"><span class="slot"></span></div>
+        <button class="mini magnetic" id="coupon-btn">Dispense a coupon</button>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🪞 Mirror of Compliments</h3>
+        <div class="mirror"><p class="mirror-text">Your face is the place my whole life decided to stay.</p><canvas class="fog" id="fog"></canvas></div>
+        <p class="hint">wipe the fog away</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 4: AUG 2 ============ -->
+<section class="chapter parchment tall-2500" id="aug2">
+  <div class="filigree left"></div><div class="filigree right"></div>
+  <div class="wrap">
+    <p class="eyebrow" data-reveal>Chapter Four</p>
+    <h2 class="grand" data-reveal>August 2nd — When Love Claimed Us</h2>
+    <p class="subtitle" data-reveal>Remembering June 2nd &amp; every sweet second since.</p>
+
+    <div class="diary" data-reveal>
+      <div class="diary-inner">
+        <p class="pen" data-pen>Love did not arrive politely. It claimed us — quietly, completely, the way autumn claims a garden.</p>
+        <p class="pen" data-pen>Every sweet second since has been a small proof that fate does not make mistakes.</p>
+      </div>
+    </div>
+
+    <h3 class="mini-title" data-reveal>💖 Reasons I Adore You</h3>
+    <div class="reasons" id="reasons">
+      <button class="flipcard" data-reveal data-back="Because you listen with your entire body."><span class="fc-inner"><span class="fc-front">♥ One</span><span class="fc-back"></span></span></button>
+      <button class="flipcard" data-reveal data-back="Because you are gentle with things that cannot thank you."><span class="fc-inner"><span class="fc-front">♥ Two</span><span class="fc-back"></span></span></button>
+      <button class="flipcard" data-reveal data-back="Because your laugh rearranges the weather in a room."><span class="fc-inner"><span class="fc-front">♥ Three</span><span class="fc-back"></span></span></button>
+      <button class="flipcard" data-reveal data-back="Because you chose me on the days I was hard to choose."><span class="fc-inner"><span class="fc-front">♥ Four</span><span class="fc-back"></span></span></button>
+      <button class="flipcard" data-reveal data-back="Because you make ordinary Tuesdays feel like a holiday."><span class="fc-inner"><span class="fc-front">♥ Five</span><span class="fc-back"></span></span></button>
+      <button class="flipcard" data-reveal data-back="Because loving you has never once felt like effort."><span class="fc-inner"><span class="fc-front">♥ Six</span><span class="fc-back"></span></span></button>
+    </div>
+
+    <div class="magic-grid">
+      <article class="mcard" data-reveal>
+        <h3>🎡 Wheel of Compliments</h3>
+        <div class="wheel" id="wheel"></div>
+        <button class="mini magnetic" id="wheel-btn">Spin the brass wheel</button>
+        <p class="hint" id="wheel-out"></p>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>💌 Origami Love Crane</h3>
+        <div class="origami" id="origami" data-stage="0"><span>❤</span></div>
+        <p class="hint" id="origami-out">tap to unfold</p>
+      </article>
+
+      <article class="mcard wide" data-reveal>
+        <h3>📰 The Daily Romance — Gazette</h3>
+        <div class="gazette">
+          <p class="gz-masthead">The Daily Romance</p>
+          <p class="gz-rule">VOL. I — MAY 30 &amp; 31 — PRICE: ONE KISS</p>
+          <div class="gz-cols">
+            <p><span class="drop">H</span>EAVEN CONFIRMS ARRANGEMENT. Sources close to the matter report that on the thirtieth of May a young man met the woman written into his life long before his birth.</p>
+            <p>ONE DAY LATER, VOWS EXCHANGED. Witnesses describe “an unreasonable amount of joy.” The husband, when questioned, said only: “She is my whole heaven.”</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🏺 Floating Affirmations Jar</h3>
+        <button class="jar magnetic" id="jar" aria-label="Take an affirmation"></button>
+        <p class="hint" id="jar-out">tap the jar</p>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🪴 Virtual Rose Garden</h3>
+        <div class="garden" id="garden"><div class="vase"></div></div>
+        <p class="hint">tap the garden to plant roses</p>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🏮 Wish Lantern Release</h3>
+        <div class="sky" id="sky"></div>
+        <button class="mini magnetic" id="lantern-btn">Release a wish</button>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>⌨️ Antique Typewriter</h3>
+        <div class="typepaper"><span id="type-out"></span><span class="caret">|</span></div>
+        <button class="mini magnetic" id="type-btn">Strike the keys</button>
+      </article>
+
+      <article class="mcard" data-reveal>
+        <h3>🧭 Interactive Brass Globe</h3>
+        <div class="globe" id="globe"><i class="pin p1" data-place="Where we met"></i><i class="pin p2" data-place="Where we married"></i></div>
+        <p class="hint" id="globe-out">tap a glowing pin</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 5: MEMORY VAULT ============ -->
+<section class="chapter velvet" id="vault">
+  <div class="wrap">
+    <p class="eyebrow gold" data-reveal>Chapter Five</p>
+    <h2 class="grand" data-reveal>The Memory Vault</h2>
+    <div class="lights" aria-hidden="true"></div>
+    <div class="polaroids" id="polaroids">
+      <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>the first hello</figcaption></figure>
+      <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>May 30th</figcaption></figure>
+      <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>May 31st</figcaption></figure>
+      <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>your laugh</figcaption></figure>
+      <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>August 1st</figcaption></figure>
+      <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>August 2nd</figcaption></figure>
+      <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>quiet evening</figcaption></figure>
+      <figure class="polaroid" data-reveal><div class="ph"></div><figcaption>forever</figcaption></figure>
+    </div>
+    <p class="hint center">replace each frame's background-image in style.css (.ph) with your own photo</p>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 6: ETERNAL PROSE ============ -->
+<section class="chapter parchment" id="prose">
+  <div class="wrap narrow">
+    <p class="eyebrow" data-reveal>Chapter Six</p>
+    <h2 class="grand" data-reveal>The Eternal Prose</h2>
+    <p class="subtitle" data-reveal>A letter with no end. Paste your twenty thousand words below — the layout will hold.</p>
+    <article class="manuscript" id="manuscript">
+      <p class="line"><span class="drop">M</span>y love, if I were given a page for every thought I have of you, the world would run out of paper long before I ran out of thoughts.</p>
+      <p class="line">I have tried, many times, to find the beginning of this feeling. I cannot. It seems to have been there before I was — waiting, patient as stone, for the day your name would arrive and give it a shape.</p>
+      <p class="line">You are the softest thing that ever happened to a hard world.</p>
+      <p class="line">When you are tired, I want to be the chair. When you are frightened, I want to be the door that locks behind you. When you are joyful, I want to be the room your laughter fills.</p>
+      <p class="line">I do not love you the way one loves a season. I love you the way one loves the ground — permanently, unremarkably, absolutely, in a way that only becomes visible if it were ever taken away.</p>
+      <p class="line">Add every remaining word here. Each paragraph fades and glows into view on its own as she reads.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CHAPTER 7: CONSTELLATION ============ -->
+<section class="chapter night" id="finale">
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <p class="eyebrow gold" data-reveal>Chapter Seven</p>
+    <h2 class="grand script" data-reveal>Our Future Constellation</h2>
+    <div class="constellation" id="constellation">
+      <svg class="const-lines" id="const-lines" aria-hidden="true"></svg>
+      <button class="node" style="--x:12%;--y:22%">Our House</button>
+      <button class="node" style="--x:44%;--y:12%">Travel the World</button>
+      <button class="node" style="--x:76%;--y:30%">A Little Family</button>
+      <button class="node" style="--x:28%;--y:62%">Every Anniversary</button>
+      <button class="node" style="--x:62%;--y:72%">Growing Old Together</button>
+      <button class="node" style="--x:88%;--y:56%">Forever After That</button>
+    </div>
+
+    <div class="tracker" data-reveal>
+      <p class="tracker-label">Time spent loving you</p>
+      <p class="tracker-value" id="tracker">—</p>
+    </div>
+
+    <svg class="knot" viewBox="0 0 200 100" aria-hidden="true">
+      <path id="knot-path" d="M40,50 C40,20 90,20 100,50 C110,80 160,80 160,50 C160,20 110,20 100,50 C90,80 40,80 40,50 Z" fill="none" stroke="#C42A38" stroke-width="2.4" filter="url(#stringGlow)"/>
+    </svg>
+
+    <svg class="signature" viewBox="0 0 600 140" aria-hidden="true">
+      <path id="sig-path" d="M20,100 C60,20 90,120 120,70 C150,20 170,110 200,80 C230,50 250,110 280,70 C310,30 330,110 370,75 C410,40 430,105 470,70 C500,44 530,80 580,50"
+        fill="none" stroke="#D4AF37" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <p class="sig-text">Forever &amp; Always Yours</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ GRAMOPHONE PLAYER ============ -->
+<div class="gramophone" id="gramophone" hidden>
+  <div class="horn"></div>
+  <button class="vinyl" id="vinyl" aria-label="Play or pause our song"><span class="label">♪</span></button>
+  <div class="wave" id="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <audio id="audio" loop preload="none" src=""></audio>
+</div>
+
+<!-- ============ MODAL ============ -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-card" role="dialog" aria-modal="true">
+    <button class="modal-x" id="modal-x" aria-label="Close">×</button>
+    <h3 id="modal-title"></h3>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="./script.js"></script>
+</body>
+</html>
