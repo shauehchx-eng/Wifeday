@@ -498,7 +498,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 9 affirmations jar
-    const AFFIRM = ["You are loved beyond measure today.", "You are allowed to rest. I've got you.", "Someone is thinking of you right now. It's me. It's always me.", "You are enough, exactly as you woke up."];
+    const AFFIRM = ["You are loved forever by me baby.", "i love you baby. I've got you.", "thinking of you right now. It's me. It's always me.", "You are beautiful my love."];
     $("#jar").addEventListener("click", () => {
       $("#jar-out").textContent = AFFIRM[Math.floor(Math.random() * AFFIRM.length)];
       goldDust(innerWidth / 2, innerHeight / 2, 16);
@@ -527,7 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 12 origami
-    const FOLDS = ["one more fold…", "almost there…", "there it is —", "“I would choose you in any life, in any language, at any hour.”"];
+    const FOLDS = ["one more fold…", "almost there…", "there it is —", "“I would choose you in every life time, everywhere, anywhere, forever.”"];
     $("#origami").addEventListener("click", (e) => {
       const el = e.currentTarget;
       let s = (+el.dataset.stage + 1) % 4;
@@ -565,8 +565,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }));
 
     // 15 bottle
-    $("#bottle").addEventListener("click", () => openModal("Message in a bottle",
-      "<p> my most bestest prettier girl is the one whos reading this dummyy.</p>"));
+    document.getElementById("bottle").addEventListener("click", () => {
+  openModal(
+    "Message in a bottle",
+    "<p>my most bestest prettier girl is the one whos reading this dummyy.</p>"
+  );
+});
 
     // 16 pocket watch
     const watch = $("#watch");
