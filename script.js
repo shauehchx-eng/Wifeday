@@ -1,3 +1,34 @@
+// ===============================================
+// 🔑 SECRET PASSWORDS FOR EACH DAY
+// Change these to your own secret words or dates!
+// ===============================================
+const DAY_PASSWORDS = {
+  may30: "thespark",   // Password for May 30th
+  may31: "ourvow",     // Password for May 31st
+  aug1:  "mywife",     // Password for August 1st
+  aug2:  "forever"     // Password for August 2nd
+};
+
+// Function to check password and unlock the chapter
+function unlockChapter(dayKey, targetSectionId) {
+  const userPassword = prompt(`🔑 Enter the secret password to unlock this chapter:`);
+
+  // If user cancels the prompt
+  if (userPassword === null) return;
+
+  // Check if password matches (case-insensitive)
+  if (userPassword.trim().toLowerCase() === DAY_PASSWORDS[dayKey].toLowerCase()) {
+    const section = document.getElementById(targetSectionId);
+    if (section) {
+      section.removeAttribute("hidden");
+      section.scrollIntoView({ behavior: "smooth" });
+      alert("✨ Correct! Chapter Unlocked, My Love ❤️");
+    }
+  } else {
+    alert("❌ Incorrect password, my love! Think back to our special memories and try again ❤️");
+  }
+}
+
 /* ==========================================================================
    Old Love & Heavenly Romance — script.js
    ========================================================================== */
