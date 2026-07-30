@@ -425,5 +425,23 @@ You're mine for today, tomorrow and for the eternity. I'm yours for today, tomor
 </div>
 
 <script src="./script.js"></script>
+  <!-- IN-PAGE PASSWORD LOCK MODAL -->
+  <div id="passwordModal" class="lock-modal-overlay">
+    <div class="lock-modal-card">
+      <div style="font-size: 2.2rem;">🔒</div>
+      <h3>Unlock Chapter</h3>
+      <p style="font-size: 0.9rem; opacity: 0.85; margin: 0;">Enter our secret password to read on, my love:</p>
+      
+      <input type="password" id="modalPasswordInput" class="lock-input" placeholder="Enter password..." />
+      <p id="modalError" style="color: #ff6b6b; font-size: 0.85rem; margin: 5px 0 10px; display: none;">❌ Incorrect password, try again! ❤️</p>
+      
+      <div style="margin-top: 15px; display: flex; gap: 12px; justify-content: center; align-items: center;">
+        <button onclick="closeLockModal()" style="background: transparent; color: #bbb; border: none; cursor: pointer; font-size: 0.9rem;">Cancel</button>
+        <button onclick="submitPassword()" class="lock-submit-btn">Unlock ✨</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
 </body>
 </html>
