@@ -25,7 +25,7 @@ function unlockChapter(dayKey, targetSectionId) {
 
   if (modal && input) {
     input.value = "";
-    errorMsg.style.display = "none";
+    if (errorMsg) errorMsg.style.display = "none";
     modal.classList.add("active");
     input.focus();
   }
@@ -43,6 +43,7 @@ function closeLockModal() {
 function submitPassword() {
   const input = document.getElementById("modalPasswordInput");
   const errorMsg = document.getElementById("modalError");
+  const modalCard = document.getElementById("lockModalCard");
   const userPassword = input ? input.value.trim() : "";
 
   if (
@@ -56,11 +57,32 @@ function submitPassword() {
       section.scrollIntoView({ behavior: "smooth" });
     }
   } else {
+    // Show error message
     if (errorMsg) {
       errorMsg.style.display = "block";
     }
+
+    // Trigger playful shake animation on error
+    if (modalCard) {
+      modalCard.classList.remove("shake");
+      void modalCard.offsetWidth; // Trigger reflow to restart animation
+      modalCard.classList.add("shake");
+    }
   }
 }
+
+// Allow pressing "Enter" key inside the password input box
+document.addEventListener("DOMContentLoaded", () => {
+  const input = document.getElementById("modalPasswordInput");
+  if (input) {
+    input.addEventListener("keyup", (event) => {
+      if (event.key === "Enter") {
+        submitPassword();
+      }
+    });
+  }
+});
+
 
 // Support pressing "Enter" key in password input
 document.addEventListener("DOMContentLoaded", () => {
@@ -423,7 +445,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 3 typewriter
-    const TYPED = "P.S. I still get nervous before I text you. Two months in. Every single time.";
+    const TYPED = "P.S. I still think of you all the time. Two months together feels like forever.";
     let typing = false;
     $("#type-btn").addEventListener("click", () => {
       if (typing) return;
@@ -544,7 +566,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 15 bottle
     $("#bottle").addEventListener("click", () => openModal("Message in a bottle",
-      "<p>Whoever finds this: she is the reason. Return her safely to me, and tell her the sea agrees — she is extraordinary.</p>"));
+      "<p> my most bestest prettier girl is the one whos reading this dummyy.</p>"));
 
     // 16 pocket watch
     const watch = $("#watch");
@@ -557,7 +579,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000);
 
     // 17 music sheet
-    const LYRICS = ["and", "you", "were", "the", "song", "before", "I", "knew", "the", "words"];
+    const LYRICS = ["and", "you", "were", "the", "missing", "piece", "to", "my", "heart", "love"];
     const sheet = $("#sheet");
     LYRICS.forEach((w, i) => {
       const b = document.createElement("button");
@@ -577,7 +599,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pulse.addEventListener("pointerleave", () => pulse.classList.remove("beat"));
 
     // 19 teacup
-    const FORTUNES = ["The leaves say: a long life, warmly shared.", "The leaves say: he will still be looking at you like this in fifty years.", "The leaves say: two souls, one thread, no ending."];
+    const FORTUNES = ["The leaves say: a eternity, we share.", "The leaves say: ill be more in love with you everyday.", "The leaves say: one souls, one thread, for eternity."];
     $("#teacup").addEventListener("click", (e) => {
       const c = e.currentTarget;
       c.classList.add("swirl");
@@ -585,7 +607,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // 20 coupons
-    const COUPONS = ["ONE FREE MASSAGE", "MIDNIGHT ICE CREAM", "BREAKFAST IN BED", "ONE UNINTERRUPTED HOUR OF ME LISTENING", "A SLOW DANCE, KITCHEN, NO MUSIC"];
+    const COUPONS = ["ONE FREE MASSAGE", "MIDNIGHT ICE CREAM", "BREAKFAST IN BED", "ONE UNINTERRUPTED HOUR OF ME LISTENING", "A SLOW DANCE, KITCHEN, NO MUSIC", "FREE SEX"];
     $("#coupon-btn").addEventListener("click", () => {
       const d = $("#dispenser");
       const c = document.createElement("span");
