@@ -880,4 +880,9 @@ button{font:inherit;color:inherit;cursor:pointer}
   background-size: cover;
   background-position: center;
 }
+.polaroid:nth-child(8) .ph {
+  background-image: url('us8.jpg.jpg') !important;
+  background-size: cover;
+  background-position: center;
+}
 
